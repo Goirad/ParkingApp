@@ -1,0 +1,24 @@
+This file documents the protocol used to interact with the server. The commands are listed first, and then each is detailed with sample usage and possible returns. Commands are submitted as space separated lists of arguments
+
+Commands:
+
+  ADDTOQUEUE
+  GETQUEUE
+
+ADDTOQUEUE
+  ADDTOQUEUE USERID
+
+  Possible returns:
+    SUCCESS - The USERID was added to the queue
+    ERROR DUPL - The USERID was already in the queue
+    ERROR ARGS - The arguments are malformed
+
+GETQUEUE
+  GETQUEUE (No args)
+
+  Possible returns:
+    ERROR ARGS - malformed args (there shouldn't be any)
+    SUCCESS - This indicates that the message is appended with a line separated list of users on the queue. The list is sorted with
+              timers closer to 0 at the top
+              Each line has the form:
+                USERID TIMER

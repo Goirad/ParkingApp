@@ -1,0 +1,19 @@
+The first iteration should have some built in multi threading, or at least block evasion since it's python.
+I think it would be useful to run on tick system, which involves updating things once per tick, ie once per second.
+The loop would look something like this:
+  x Get the current time in millis
+  Check for any new connections, and if there are any add them to a list
+  Run through the list of connections and check if any have any requests to be processed.
+    This includes adding a parker to the queue
+    and if a leaver checks in, matching him to the head of the queue
+    note, register all new parkers before the leavers
+  Send out notifications to all connections.
+    If a match, send to both parties appropriate messages
+    If not, send info like number in queue
+
+  x Calculate how much time has elapsed, and sleep enough millis to complete the tick
+  Repeat
+
+
+Blocking:
+    Accepting connections is blocking, so we set it to non blocking
