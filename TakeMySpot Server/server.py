@@ -8,7 +8,7 @@ HOST = ''
 PORT = 2718
 BUFSIZE = 2048
 
-Queue = [] #socket
+socks = [] #socket
 conns = {} #{userID: (type, socket, place)}
 parkers = 0
 leavers = 0
@@ -27,16 +27,17 @@ def tokenize(raw_req):
 def handleRequest(sock, rawReq):
   tokens = tokenize(rawReq)
   if sock not in conns:
+    #shouldn't happen
+    0==0
+          
+  else:
     if tokens[0] == "CONNECT":
       if len(tokens) != 2:
         return "ERROR ARGS"
       else:
         userID = int(tokens[1])
+        socks.append(sock)
         conns[userID] = (userID, sock, -1)
-          
-  else:
-    if tokens[0] == "CONNECT":
-      return "ERROR DUP USER"
       
     elif tokens[0] == "ADDTOQUEUE":
       if len(tokens) != 2:
@@ -77,7 +78,8 @@ def handleRequest(sock, rawReq):
           leavers += 1
 
 
-
+def doLogic():
+  return
 
 
 
@@ -93,7 +95,7 @@ except socket.error as msg:
 
 
 
-conns.append(serverSock)
+socks.append(serverSock)
 
 #Main Loop
 while True:
@@ -101,17 +103,19 @@ while True:
 
     readSockets, writeSockets, errorSockets = select.select(conns,[],[])
  
-    for socket in read_sockets:
+    for socket in readSockets:
       if socket == serverSock:
         newSock, newAddr = serverSock.accept()
-        conns.append(newSock)
+        socks.append(newSock)
       else:
         reply = handleRequest(socket, socket.recv(BUFSIZE))
     
+    doLogic()
+    
     for socket in writeSockets:
       if socket != serverSock:
-        
-        
+        #broadcast
+        0 == 0
         
     end = current_milli_time()
     delta = (end - start)
