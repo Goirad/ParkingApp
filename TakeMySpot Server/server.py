@@ -5,7 +5,7 @@ import select
 
 
 HOST = ''
-PORT = 2718
+PORT = 27182
 BUFSIZE = 2048
 
 socks = [] #socket
@@ -20,7 +20,7 @@ current_milli_time = lambda: int(round(time.time() * 1000))
 
 
 def tokenize(raw_req):
-  return raw_req.split(" ")
+  return raw_req.trim().split(" ")
 
 
 
@@ -77,14 +77,14 @@ def handleRequest(sock, rawReq):
           conns[userID][2] = leavers
           leavers += 1
 
-
+#Once all of last second's requests have been processed, do all the logic
 def doLogic():
   return
 
 
 
 serverSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serverSock.listen(10)
+serverSock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 
 
@@ -94,29 +94,29 @@ except socket.error as msg:
     print('Bind failed. Error Code : ' + str(msg))
 
 
-
+serverSock.listen(10)
 socks.append(serverSock)
 
 #Main Loop
 while True:
     start = current_milli_time()
 
-    readSockets, writeSockets, errorSockets = select.select(conns,[],[])
- 
+    readSockets, writeSockets, errorSockets = select.select(socks,[],[], 0.01)
+
     for socket in readSockets:
       if socket == serverSock:
         newSock, newAddr = serverSock.accept()
         socks.append(newSock)
       else:
         reply = handleRequest(socket, socket.recv(BUFSIZE))
-    
+
     doLogic()
     
     for socket in writeSockets:
       if socket != serverSock:
         #broadcast
         0 == 0
-        
+    
     end = current_milli_time()
     delta = (end - start)
     print("Ticked in {} ms".format(delta))
