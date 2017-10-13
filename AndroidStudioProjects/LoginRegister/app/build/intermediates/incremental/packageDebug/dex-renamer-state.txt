@@ -1,0 +1,7 @@
+#Fri Oct 13 15:15:51 EDT 2017
+base.0=C\:\\Users\\daeddy\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_38e8bc40a6657b4a6ad33087bfa9df6125b3f6f3
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\daeddy\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e220b6cd9f8017d00631b3af524d64a91ac65959\\classes.dex
+base.1=C\:\\Users\\daeddy\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e220b6cd9f8017d00631b3af524d64a91ac65959
+file.0=C\:\\Users\\daeddy\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_38e8bc40a6657b4a6ad33087bfa9df6125b3f6f3\\classes.dex
