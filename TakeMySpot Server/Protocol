@@ -42,6 +42,16 @@ Commands that currently work:
                 "name" : "<user's name>",
                 "vehicle" : "<description of user's vehicle",
             }
+        invalid arguments, too many, too few, or not the right fields
+            {
+                "reply" : "error",
+                "description" : "Invalid arguments"
+            }
+        User not found in the database, consider using create to make one
+            {
+                "reply" : "error",
+                "description" : "User not found"
+            }
 
 
 Messages will be sent formatted in JSON

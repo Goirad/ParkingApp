@@ -11,6 +11,8 @@ HOST = ''
 PORT = 27182
 BUFSIZE = 2048
 
+
+queue = []
 socks = []  # socket
 conns = {}  # {socket: user}
 # we need two things
@@ -76,9 +78,9 @@ def handleRequest(sock, rawReq):
         return makeError('Command field not found')
     else:
 
-        if req['command'] == "connect":
+        if req['command'] == 'connect':
             return handleConnect(sock, req)
-        elif req["command"] == "create":
+        elif req['command'] == 'create':
             return handleCreate(sock, req)
         else:
             return makeError('Invalid command')
