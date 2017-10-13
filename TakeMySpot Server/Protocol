@@ -1,24 +1,81 @@
-This file documents the protocol used to interact with the server. The commands are listed first, and then each is detailed with sample usage and possible returns. Commands are submitted as space separated lists of arguments
+This file documents the protocol used to interact with the server.
+The commands are listed first, and then each is detailed with sample usage and possible returns.
+Commands are submitted as JSON for inter language compatibility and ease of parsing.
 
-Commands:
 
-  ADDTOQUEUE
-  GETQUEUE
+Commands that currently work:
+    create
+        {
+            "command" : "create",
+            "userID" : "<new userID>",
+            "name" : "<user's name>",
+            "vehicle" : "<description of vehicle>"
+        }
 
-ADDTOQUEUE
-  ADDTOQUEUE USERID
+        Adds a user to the database (currently just a file)
+        Checks to make sure the userID isn't already present in the database
 
-  Possible returns:
-    SUCCESS - The USERID was added to the queue
-    ERROR DUPL - The USERID was already in the queue
-    ERROR ARGS - The arguments are malformed
+        returns
+        success -
+            {
+                "reply" : "success"
+            }
+        invalid arguments, too many, too few, or not the right fields
+            {
+                "reply" : "error",
+                "description" : "Invalid arguments"
+            }
 
-GETQUEUE
-  GETQUEUE (No args)
+    connect
+        {
+            "command" : "connect",
+            "userID" : "<userID"
+        }
 
-  Possible returns:
-    ERROR ARGS - malformed args (there shouldn't be any)
-    SUCCESS - This indicates that the message is appended with a line separated list of users on the queue. The list is sorted with
-              timers closer to 0 at the top
-              Each line has the form:
-                USERID TIMER
+        Matches a socket with a userID in the servers memory, in this way sockets need only send commands
+        without constantly identifying themselves. Also returns the user's previous data
+
+        returns
+        success -
+            {
+                "reply" : "success",
+                "name" : "<user's name>",
+                "vehicle" : "<description of user's vehicle",
+            }
+
+
+Messages will be sent formatted in JSON
+ie:
+
+{
+    "command" : "connect",
+    "userID"  : "Dario"
+}
+
+or
+
+{
+    "command" : "CREATE",
+    "userID" : "Dario",
+    "vehicle" : "Toyota Tacoma",
+    "name" : "Dario Gonzalez"
+}
+
+or
+
+{
+    "SUCCESS" : {
+        "description": "The last command was handles successfully",
+        "code": 0
+    }
+}
+
+or
+
+{
+    "ERROR" : {
+        "type" : "ARGS",
+        "description" : "Invalid arguments for that command",
+        "code" : 1
+    }
+}

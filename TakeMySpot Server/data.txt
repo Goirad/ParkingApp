@@ -1,0 +1,24 @@
+{
+    "users": {
+        "Dario": {
+            "vehicle": "Toyota Tacoma",
+            "name": "Dario Gonzalez"
+        },
+        "Olivier": {
+            "vehicle": "Bicycle",
+            "name": "Olivier Nappert"
+        },
+        "Lester": {
+            "vehicle": "Honda Civic",
+            "name": "Lester Hernandez"
+        },
+        "Eduardo": {
+            "vehicle": "Toyota Corolla",
+            "name": "Eduardo Porto"
+        },
+        "Ciara": {
+            "vehicle": "BMW",
+            "name": "Ciara Aranda"
+        }
+    }
+}
