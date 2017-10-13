@@ -70,22 +70,3 @@ or
     "vehicle" : "Toyota Tacoma",
     "name" : "Dario Gonzalez"
 }
-
-or
-
-{
-    "SUCCESS" : {
-        "description": "The last command was handles successfully",
-        "code": 0
-    }
-}
-
-or
-
-{
-    "ERROR" : {
-        "type" : "ARGS",
-        "description" : "Invalid arguments for that command",
-        "code" : 1
-    }
-}
