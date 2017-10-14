@@ -38,18 +38,19 @@ def handleConnect(addr, req):
     if len(req) != 1 or 'userID' not in req:
         return makeError('Invalid command arguments')
     else:
-        if req['userID'] in conns:
+        userID = req['userID']
+        if userID in conns:
             return makeError('User already connected')
         else:
             try:
-                user = User(req['userID'], addr)
-                conns[req['userID']] = user
+                user = User(userID, addr)
+                conns[userID] = user
                 return (200, json.dumps({'name' : user.name, 'vehicle' : user.vehicle}))
             except Exception as e:
                 print(e)
                 return makeError('User not found')
 
-def handleCreate(sock, req):
+def handleCreate(req):
     if len(req) != 3 or 'userID' not in req or 'name' not in req or 'vehicle' not in req:
         return makeError('Invalid command arguments')
     else:
@@ -77,6 +78,15 @@ def handleCreate(sock, req):
 
             return (200, None)
 
+def handlePark(addr, req):
+    if len(req) != 1 or 'userID' not in req:
+        return makeError('Invalid command arguments')
+    else:
+        userID = req['userID']
+        user = conns[userID]
+
+
+
 def handleRequest(addr, rawReq, page):
     try:
         req = parse(rawReq)
@@ -88,7 +98,7 @@ def handleRequest(addr, rawReq, page):
     if page == '/connect':
         return handleConnect(addr, req)
     elif page == '/create':
-        return handleCreate(addr, req)
+        return handleCreate(req)
     else:
         return makeError('Invalid command')
 
