@@ -6,6 +6,9 @@ import select
 from user import User
 import json
 import os
+import http
+
+
 
 HOST = ''
 PORT = 27182
@@ -14,7 +17,8 @@ BUFSIZE = 2048
 
 queue = []
 socks = []  # socket
-conns = {}  # {socket: user}
+conns = {}  # {userID: user}
+sockAddr = {} #{socket: (host, port)}
 # we need two things
 # a list of (socket) which stores order
 
@@ -22,26 +26,31 @@ current_milli_time = lambda: int(round(time.time() * 1000))
 
 
 def parse(raw_req):
-    return json.loads(raw_req.decode("utf-8"))
+    return json.loads(raw_req)
 
 
 def makeError(err):
-    return json.dumps({'reply' : 'error', 'description' : err})
+    return (404, json.dumps({'description' : err}))
 
-def handleConnect(sock, req):
-    if len(req) != 2 or 'userID' not in req:
+
+
+def handleConnect(addr, req):
+    if len(req) != 1 or 'userID' not in req:
         return makeError('Invalid command arguments')
     else:
-        try:
-            user = User(req['userID'], sock)
-            conns[sock] = user
-            return json.dumps({'reply': 'success', 'name' : user.name, 'vehicle' : user.vehicle})
-        except Exception as e:
-            print(e)
-            return makeError('User not found')
+        if req['userID'] in conns:
+            return makeError('User already connected')
+        else:
+            try:
+                user = User(req['userID'], addr)
+                conns[req['userID']] = user
+                return (200, json.dumps({'name' : user.name, 'vehicle' : user.vehicle}))
+            except Exception as e:
+                print(e)
+                return makeError('User not found')
 
 def handleCreate(sock, req):
-    if len(req) != 4 or 'userID' not in req or 'name' not in req or 'vehicle' not in req:
+    if len(req) != 3 or 'userID' not in req or 'name' not in req or 'vehicle' not in req:
         return makeError('Invalid command arguments')
     else:
         dbFile = open('data.txt', 'r')
@@ -66,28 +75,29 @@ def handleCreate(sock, req):
             os.rename('data1.txt', 'data.txt')
             os.rename('data2.txt', 'data1.txt')
 
-            return json.dumps({'reply' : 'success'})
+            return (200, None)
 
-def handleRequest(sock, rawReq):
+def handleRequest(addr, rawReq, page):
     try:
         req = parse(rawReq)
-    except:
+    except Exception as e:
+        print(e)
         return makeError('Invalid JSON')
 
-    if 'command' not in req:
-        return makeError('Command field not found')
-    else:
 
-        if req['command'] == 'connect':
-            return handleConnect(sock, req)
-        elif req['command'] == 'create':
-            return handleCreate(sock, req)
-        else:
-            return makeError('Invalid command')
+    if page == '/connect':
+        return handleConnect(addr, req)
+    elif page == '/create':
+        return handleCreate(addr, req)
+    else:
+        return makeError('Invalid command')
 
 
 # Once all of last second's requests have been processed, do all the logic
 def doLogic():
+    for user in conns:
+        if time.time() - conns[user].lastActive > 30:
+            del conns[user]
     return
 
 
@@ -107,6 +117,7 @@ socks.append(serverSock)
 
 
 # Main Loop
+
 while True:
     start = current_milli_time()
 
@@ -116,17 +127,22 @@ while True:
         if socket == serverSock:
             newSock, newAddr = serverSock.accept()
             socks.append(newSock)
+            sockAddr[newSock] = newAddr
             print("new connection")
         else:
-            request = socket.recv(BUFSIZE)
-            if request == b'':
+            startline, headers, data = http.recvFullMessage(socket)
+            if startline == b'':
                 socks.remove(socket)
                 if socket in conns:
                     del conns[socket]
             else:
-                print('Request: \n' + request.decode('utf-8'))
-                reply = handleRequest(socket, request)
-                socket.send(str.encode(reply + "\n"))
+                print('Request: \n' + startline)
+                page, querydict = http.parseStartLine(startline)
+
+                code, reply = handleRequest(sockAddr[socket], data, page)
+
+                httpReply = http.getResponseHead({}, code=str(code), data = reply)
+                http.sendFullMessage(socket, httpReply.encode("utf-8"))
 
     doLogic()
 
@@ -135,7 +151,6 @@ while True:
     delta = (end - start)
     print("Ticked in {} ms".format(delta))
     time.sleep(max(1 - delta / 1000, 0))
-
 
 
 

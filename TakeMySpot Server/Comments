@@ -17,3 +17,12 @@ The loop would look something like this:
 
 Blocking:
     Accepting connections is blocking, so we set it to non blocking
+
+
+TODO
+Refactor server to use http - done
+Implement queueing functionality
+Implement matchmaking functionality
+
+The server will not track socket-user relationships
+    each message will need to have the userID in it

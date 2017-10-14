@@ -1,6 +1,6 @@
 {
     "users": {
-        "Dario" : {
+        "Dario": {
             "vehicle": "Toyota Tacoma",
             "name": "Dario Gonzalez"
         },
@@ -15,6 +15,10 @@
         "Eduardo": {
             "vehicle": "Toyota Corolla",
             "name": "Eduardo Porto"
+        },
+        "Ciara": {
+            "vehicle": "BMW",
+            "name": "Ciara Aranda"
         }
     }
 }

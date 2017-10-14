@@ -1,19 +1,22 @@
 import json
+import time
 
 class User:
     userID = 0
     vehicle = ""
-    sock = 0
+    addr = 0
     name = ""
+    lastActive = 0
 
-    def __init__(self, userID, sock):
+    def __init__(self, userID, addr):
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
                 self.userID = userID
                 self.vehicle = db['users'][userID]['vehicle']
-                self.sock = sock
+                self.addr = addr
                 self.name = db['users'][userID]['name']
+                self.lastActive = time.time()
             else:
                 raise "USER NOT FOUND"
 
