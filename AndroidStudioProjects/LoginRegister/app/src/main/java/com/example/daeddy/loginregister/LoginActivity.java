@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -37,23 +38,16 @@ public class LoginActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                final String uname = etUname.getText().toString();
-                try {
-                    String jsonString = new JSONObject()
-                            .put("command", "connect")
-                            .put("userID", uname)
-                            .toString();
-                    new SendMsg().execute(jsonString);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                /*Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
+                final String uName = etUname.getText().toString();
+                final String LOGIN_REQUEST_URL = "http://10.0.2.2:27182/connect";
 
+                Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            System.err.println("Resp");
+                            JSONObject jsonResponse = response;
+                            boolean success = jsonResponse.getBoolean("success");
                             if (success) {
                                 String name = jsonResponse.getString("name");
                                 String vehicle = jsonResponse.getString("vehicle");
@@ -61,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, UserAreaActivity.class);
                                 intent.putExtra("name", name);
                                 intent.putExtra("vehicle", vehicle);
-                                intent.putExtra("Uname", uname);
+                                intent.putExtra("Uname", uName);
                                 LoginActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -77,9 +71,17 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 };
 
-                LoginRequest loginRequest = new LoginRequest(uname, responseListener);
+                JSONObject js = new JSONObject();
+                try {
+                    js.put("userID", uName);
+
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                JsonObjectRequest request = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRequest);*/
+                queue.add(request);
             }
         });
     }

@@ -30,6 +30,7 @@ def parse(raw_req):
 
 
 def makeError(err):
+    print ("error", err)
     return (404, json.dumps({'description' : err}))
 
 
@@ -45,7 +46,7 @@ def handleConnect(addr, req):
             try:
                 user = User(userID, addr)
                 conns[userID] = user
-                return (200, json.dumps({'name' : user.name, 'vehicle' : user.vehicle}))
+                return (200, json.dumps({'success': True,'name' : user.name, 'vehicle' : user.vehicle}))
             except Exception as e:
                 print(e)
                 return makeError('User not found')
@@ -76,8 +77,8 @@ def handleCreate(req):
             os.rename('data1.txt', 'data.txt')
             os.rename('data2.txt', 'data1.txt')
 
-            return (200, None)
-
+            return (200, json.dumps({'success': True}))
+            
 def handlePark(addr, req):
     if len(req) != 1 or 'userID' not in req:
         return makeError('Invalid command arguments')
@@ -141,6 +142,7 @@ while True:
             print("new connection")
         else:
             startline, headers, data = http.recvFullMessage(socket)
+            print (data)
             if startline == b'':
                 socks.remove(socket)
                 if socket in conns:
