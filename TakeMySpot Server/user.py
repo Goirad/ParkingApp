@@ -7,6 +7,7 @@ class User:
     addr = 0
     name = ""
     lastActive = 0
+    inQueue = False
 
     def __init__(self, userID, addr):
         with open('data.txt') as dbFile:

@@ -8,17 +8,14 @@ import json
 import os
 import http
 
-
-
 HOST = ''
 PORT = 27182
 BUFSIZE = 2048
 
-
 queue = []
 socks = []  # socket
 conns = {}  # {userID: user}
-sockAddr = {} #{socket: (host, port)}
+sockAddr = {}  # {socket: (host, port)}
 # we need two things
 # a list of (socket) which stores order
 
@@ -30,9 +27,8 @@ def parse(raw_req):
 
 
 def makeError(err):
-    print ("error", err)
-    return (404, json.dumps({'description' : err}))
-
+    print("error", err)
+    return (404, json.dumps({'success': False, 'description': err}))
 
 
 def handleConnect(addr, req):
@@ -46,10 +42,23 @@ def handleConnect(addr, req):
             try:
                 user = User(userID, addr)
                 conns[userID] = user
-                return (200, json.dumps({'success': True,'name' : user.name, 'vehicle' : user.vehicle}))
+                return (200, json.dumps({'success': True, 'name': user.name, 'vehicle': user.vehicle}))
             except Exception as e:
                 print(e)
                 return makeError('User not found')
+
+
+def handleDisconnect(addr, req):
+    if len(req) != 1 or 'userID' not in req:
+        return makeError('Invalid command arguments')
+    else:
+        userID = req['userID']
+        if userID in conns:
+            del conns[userID]
+            return (200, json.dumps({'success': True}))
+        else:
+            return makeError('User not connected')
+
 
 def handleCreate(req):
     if len(req) != 3 or 'userID' not in req or 'name' not in req or 'vehicle' not in req:
@@ -64,7 +73,7 @@ def handleCreate(req):
             vehicle = req['vehicle']
             name = req['name']
 
-            db['users'][userID] = {'vehicle' : vehicle, 'name': name}
+            db['users'][userID] = {'vehicle': vehicle, 'name': name}
 
             new = open('data1.txt', 'w')
 
@@ -78,23 +87,78 @@ def handleCreate(req):
             os.rename('data2.txt', 'data1.txt')
 
             return (200, json.dumps({'success': True}))
-            
-def handlePark(addr, req):
+
+
+def handlePark(req):
     if len(req) != 1 or 'userID' not in req:
         return makeError('Invalid command arguments')
     else:
         userID = req['userID']
-        user = conns[userID]
+        if userID not in conns:
+            return makeError('User not connected')
+        else:
+            user = conns[userID]
+            user.lastActive = current_milli_time()
+            user.parking = True
+            queue.append(user)
+
+            return (200, json.dumps({'success': True}))
 
 
+def handleLeave(req):
+    if len(req) != 2 or 'userID' not in req or 'locationDescription' not in req:
+        return makeError('Invalid command arguments')
+    else:
+        userID = req['userID']
+        if userID not in conns:
+            return makeError('User not connected')
+        else:
+            user = conns[userID]
+            user.lastActive = current_milli_time()
+            if len(queue) == 0:
+                return makeError('No one wants to park')
+            else:
+                nextInLine = queue[0]
+                nextInLine.matched = True
+                nextInLine.matchUserID = userID
+                nextInLine.matchLocation = req['locationDescription']
+                return (200, json.dumps({'success': True, 'matchUserID': nextInLine.userID}))
 
+
+def handleAccept(req):
+    return
+
+
+def handleDecline(req):
+    return
+
+
+def handlePoll(req):
+    if len(req) != 1 or 'userID' not in req:
+        return makeError('Invalid command arguments')
+    else:
+        userID = req['userID']
+        if userID not in conns:
+            return makeError('User not connected')
+        else:
+            user = conns[userID]
+            user.lastActive = current_milli_time()
+            reply = {'userID': userID, 'inQueue': user.inQueue}
+            if user.inQueue:
+                reply['matched'] = user.matched
+                reply['position'] = user.matchLocation
+                if user.matched:
+                    reply['matchUserID'] = user.matchUserID
+                    reply['matchLocation'] = user.matchLocation
+
+
+# TODO check user is connected here not in each request method
 def handleRequest(addr, rawReq, page):
     try:
         req = parse(rawReq)
     except Exception as e:
         print(e)
         return makeError('Invalid JSON')
-
 
     if page == '/connect':
         return handleConnect(addr, req)
@@ -123,10 +187,6 @@ except socket.error as msg:
 serverSock.listen(10)
 socks.append(serverSock)
 
-
-
-
-
 # Main Loop
 
 while True:
@@ -142,7 +202,7 @@ while True:
             print("new connection")
         else:
             startline, headers, data = http.recvFullMessage(socket)
-            print (data)
+            print(data)
             if startline == b'':
                 socks.remove(socket)
                 if socket in conns:
@@ -153,16 +213,12 @@ while True:
 
                 code, reply = handleRequest(sockAddr[socket], data, page)
 
-                httpReply = http.getResponseHead({}, code=str(code), data = reply)
+                httpReply = http.getResponseHead({}, code=str(code), data=reply)
                 http.sendFullMessage(socket, httpReply.encode("utf-8"))
 
     doLogic()
 
-
     end = current_milli_time()
     delta = (end - start)
     print("Ticked in {} ms".format(delta))
-    time.sleep(max(1 - delta / 1000, 0))
-
-
-
+time.sleep(max(1 - delta / 1000, 0))

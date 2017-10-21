@@ -1,3 +1,4 @@
+
 This file documents the protocol used to interact with the server.
 The commands are listed first, and then each is detailed with sample usage and possible returns.
 Commands are submitted as HTTP POST requests with embedded JSON in the body.
@@ -25,60 +26,137 @@ Commands that currently work:
             HTTP/1.1 200 OK
             Content-Length: <length>
             {
-                "reply" : "success"
+                "success" : true
             }
         invalid arguments, too many, too few, or not the right fields
             HTTP/1.1 404 Error
             Content-Length: <length>
             {
+                "success" : false,
                 "description" : "Invalid arguments"
             }
 
     connect
-
+        POST /connect HTTP/1.1
+        Content-Length: <length>
         {
-            "userID" : "<userID"
+            "userID" : "<userID>"
         }
-
-        Matches a socket with a userID in the servers memory, in this way sockets need only send commands
-        without constantly identifying themselves. Also returns the user's previous data
 
         returns
         success -
+            HTTP/1.1 200 OK
+            Content-Length: <length>
             {
-                "reply" : "success",
+                "success" : true,
                 "name" : "<user's name>",
                 "vehicle" : "<description of user's vehicle",
             }
         invalid arguments, too many, too few, or not the right fields
+            HTTP/1.1 404 ERROR
+            Content-Length: <length>
             {
-                "reply" : "error",
+                "success" : false,
                 "description" : "Invalid arguments"
             }
         User not found in the database, consider using create to make one
+            HTTP/1.1 404 ERROR
+            Content-Length: <length>
             {
-                "reply" : "error",
+                "success" : false,
                 "description" : "User not found"
             }
-
-
-
-Since we are using http as a wrapping protocol here is what I am expecting:
-I will be using as per Olivier's suggestion different endpoints for different commands
-
-eg to connect it would look something like this
-POST /connect HTTP/1.1
-<headers>
-{
-    "userID" : "<userID>"
-}
-
-or
-
-POST /create HTTP/1.1
-<headers>
-{
-    "userID" : "<userID>",
-    "name"   : "<name>",
-    "vehicle": "<vehicle description>"
-}
+    disconnect
+        POST /disconnect HTTP/1.1
+        Content-Length: <length>
+        {
+            "userID" : "<userID"
+        }
+        
+        returns
+        success
+            HTTP/1.1 200 OK
+            Content-Length: <length>
+            {
+                "success" : true
+            }
+        
+        invalid arguments,
+        user not found
+          
+    park
+        POST /park HTTP/1.1
+        Content-Length: <length>
+        {
+          "userID" : "<userID>"
+        }
+        
+        returns success, invalid args, and user not connected
+    
+    leave
+        POST /leave HTTP/1.1
+        Content-Length: <length>
+        {
+          "userID" : "<userID>",
+          "locationDescription" : "<description of location>"
+        }
+        
+        returns success, invalid args, user not connected, and no one wants to leave
+    
+    poll
+        POST /poll HTTP/1.1
+        Content-Length: <length>
+        {
+          "userID" : "<userID>"
+        }
+          
+        returns
+        
+        HTTP/1.1 200 OK
+        Content-Length: <length>
+        {
+          "userID" : "<userID>",
+          "inQueue": false
+        }
+        
+        HTTP/1.1 200 OK
+        Content-Length: <length>
+        {
+          "userID" : "<userID>",
+          "inQueue": true,
+          "matched": false,
+          "position": <position in queue>
+        }
+        
+        HTTP/1.1 200 OK
+        Content-Length: <length>
+        {
+          "userID" : "<userID>",
+          "inQueue": true,
+          "matched": true,
+          "position": <position in queue>,
+          "matchUserID" : "<userID>",
+          "matchLocation": "<location description"
+        }
+        
+    accept
+    
+    decline
+    
+    
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
