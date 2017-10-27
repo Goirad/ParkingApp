@@ -56,7 +56,7 @@ class User:
             self.reply = self.server.makeError('That command is not available for this user state')
         else:
             self.state = State.PARKING
-            server.startQueue.append(self)
+            self.server.parkingQueue.append(self)
             self.reply = successReply
 
     def handleLeaving(self, argsDict):
@@ -66,7 +66,7 @@ class User:
             self.reply = self.server.makeError('That command is not available for this user state')
         else:
             self.state = State.LEAVING
-            self.server.leaveQueue.append(self)
+            self.server.leavingQueue.append(self)
             self.reply = successReply
 
 

@@ -12,12 +12,8 @@ HOST = ''
 PORT = 27182
 BUFSIZE = 2048
 
-leavingQueue = []
-parkingQueue = []
 
-socks = []  # socket
-conns = {}  # {userID: user}
-sockAddr = {}  # {socket: user}
+
 # we need two things
 # a list of (socket) which stores order
 
@@ -45,18 +41,23 @@ def checkArgs(reqJSON, fun):
         return makeError('Invalid arguments for ' + fun)
 
 class Server:
+    leavingQueue = []
+    parkingQueue = []
 
+    socks = []  # socket
+    conns = {}  # {userID: user}
+    sockAddr = {}  # {socket: user}
     def handleConnect(self, addr, req):
         res = checkArgs(req, 'default')
         if res == True:
             userID = req['userID']
-            if userID in conns:
+            if userID in self.conns:
                 return makeError('User already connected')
             else:
                 try:
                     user = User(userID, addr, self)
-                    conns[userID] = user
-                    sockAddr[addr] = user
+                    self.conns[userID] = user
+                    self.sockAddr[addr] = user
                     user.reply = (200, json.dumps({'success' : True}))
                 except Exception as e:
                     print(e)
@@ -71,9 +72,9 @@ class Server:
         if res == True:
             userID = req['userID']
             #TODO implement dequeuing and elegant cleanup
-            if userID in conns:
-                del sockAddr[conns[userID].addr]
-                del conns[userID]
+            if userID in self.conns:
+                del self.sockAddr[self.conns[userID].addr]
+                del self.conns[userID]
 
                 return (200, json.dumps({'success': True}))
             else:
@@ -135,19 +136,19 @@ class Server:
                 else:
                     return res
             else:
-                if req['userID'] not in conns:
+                if req['userID'] not in self.conns:
                     return makeError('That user is not connected')
                 else:
                     if page == '/park':
                         res = checkArgs(req, 'default')
                         if res == True:
-                            conns[req['userID']].handlePark(req)
+                            self.conns[req['userID']].handleParking(req)
                         else:
                             return res
                     elif page == '/leave':
                         res = checkArgs(req, 'default')
                         if res == True:
-                            conns[req['userID']].handleLeave(req)
+                            self.conns[req['userID']].handleLeaving(req)
                         else:
                             return
                     elif page == '/disconnect':
@@ -159,19 +160,19 @@ class Server:
                     elif page == '/cancel':
                         res = checkArgs(req, 'default')
                         if res == True:
-                            conns[req['userID']].handleCancel(req)
+                            self.conns[req['userID']].handleCancel(req)
                         else:
                             return res
                     elif page == '/accept':
                         res = checkArgs(req, 'default')
                         if res == True:
-                            conns[req['userID']].handleCancel(req)
+                            self.conns[req['userID']].handleCancel(req)
                         else:
                             return res
                     elif page == '/decline':
                         res = checkArgs(req, 'default')
                         if res == True:
-                            conns[req['userID']].handleCancel(req)
+                            self.conns[req['userID']].handleCancel(req)
                         else:
                             return res
                     else:
@@ -189,7 +190,7 @@ class Server:
         '''
 
         #update queue positions
-        for idx, user in enumerate(parkingQueue):
+        for idx, user in enumerate(self.parkingQueue):
             user.updateReply(idx)
         #TODO check for matches
         return
@@ -205,29 +206,29 @@ class Server:
             print('Bind failed. Error Code : ' + str(msg))
 
         serverSock.listen(10)
-        socks.append(serverSock)
+        self.socks.append(serverSock)
 
         # Main Loop
 
         while True:
             start = current_milli_time()
 
-            readSockets, writeSockets, errorSockets = select.select(socks, socks, [], .02)
+            readSockets, writeSockets, errorSockets = select.select(self.socks, self.socks, [], .02)
 
             for socket in readSockets:
                 if socket == serverSock:
                     newSock, newAddr = serverSock.accept()
-                    socks.append(newSock)
-                    sockAddr[newSock] = newAddr
+                    self.socks.append(newSock)
+                    self.sockAddr[newSock] = newAddr
                     print("new connection")
                 else:
                     startline, headers, data = http.recvFullMessage(socket)
                     print(data)
                     if startline == b'':
-                        socks.remove(socket)
-                        if socket in conns:
+                        self.socks.remove(socket)
+                        if socket in self.conns:
                             #TODO more graceful sudden disconnect
-                            del conns[socket]
+                            del self.conns[socket]
                     else:
                         print('Request: \n' + startline)
                         page, querydict = http.parseStartLine(startline)
@@ -235,8 +236,8 @@ class Server:
                         self.handleRequest(socket, data, page)
 
             for socket in writeSockets:
-                if socket != serverSock and socket in sockAddr:
-                    user = sockAddr[socket]
+                if socket != serverSock and socket in self.sockAddr:
+                    user = self.sockAddr[socket]
                     if user.reply != None:
                         code, reply = user.reply
 
