@@ -34,16 +34,17 @@ class User:
 
     reply = None
 
-    def __init__(self, userID, sock):
+    def __init__(self, userID, sock, server):
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
                 self.userID = userID
+                self.server = server
                 self.vehicle = db['users'][userID]['vehicle']
                 self.sock = sock
                 self.state = State.START
                 self.name = db['users'][userID]['name']
-                self.lastActive = time.time()
+                self.lastActive = current_milli_time()
             else:
                 raise "USER NOT FOUND"
 
@@ -52,7 +53,7 @@ class User:
         self.lastActive = current_milli_time()
 
         if self.state != State.START:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
         else:
             self.state = State.PARKING
             server.startQueue.append(self)
@@ -62,10 +63,10 @@ class User:
         self.lastActive = current_milli_time()
 
         if self.state != State.START:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
         else:
             self.state = State.LEAVING
-            server.leaveQueue.append(self)
+            self.server.leaveQueue.append(self)
             self.reply = successReply
 
 
@@ -90,7 +91,7 @@ class User:
             self.state = State.EXCHANGING_L
             self.reply = successReply
         else:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
 
 
 
@@ -112,7 +113,7 @@ class User:
             self.reply = successReply
 
         else:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
 
 
 
@@ -124,12 +125,12 @@ class User:
             self.match = None
 
             if self.state == State.EXCHANGING_P:
-                server.parkingQueue.remove(self)
+                self.server.parkingQueue.remove(self)
             elif self.state == State.EXCHANGING_L:
-                server.leavingQueue.remove(self)
+                self.server.leavingQueue.remove(self)
             self.reply = successReply
         else:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
 
 
     def handleFailure(self, argsDict):
@@ -145,7 +146,7 @@ class User:
             self.match = None
             self.reply = successReply
         else:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
 
 
 
@@ -154,27 +155,27 @@ class User:
 
         if self.state == State.LEAVING:
             self.state = State.START
-            server.leavingQueue.remove(self)
+            self.server.leavingQueue.remove(self)
             self.reply = successReply
 
         elif self.state == State.PARKING:
             self.state = State.START
-            server.parkingQueue.remove(self)
+            self.server.parkingQueue.remove(self)
             self.reply = successReply
 
         elif self.state == State.EXCHANGING_P:
             self.state = State.START
             self.match = None
-            server.parkingQueue.remove(self)
+            self.server.parkingQueue.remove(self)
             self.reply = successReply
 
         elif self.state == State.EXCHANGING_L:
             self.state = State.START
             self.match = None
-            server.leavingQueue.remove(self)
+            self.server.leavingQueue.remove(self)
             self.reply = successReply
         else:
-            self.reply = server.makeError('That command is not available for this user state')
+            self.reply = self.server.makeError('That command is not available for this user state')
 
     def updateReply(self, positionInQueue):
         self.reply = (200, json.dumps({'position': positionInQueue}))

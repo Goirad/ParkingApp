@@ -33,16 +33,16 @@ def parse(raw_req):
     return json.loads(raw_req)
 
 
-def makeError(self, err):
+def makeError(err):
     print("error", err)
     return (404, json.dumps({'success': False, 'description': err}))
 
 
-def checkArgs(self, reqJSON, fun):
+def checkArgs(reqJSON, fun):
     if reqJSON.keys != expectedJSONArgs[fun]:
         return True
     else:
-        return self.makeError('Invalid arguments for ' + fun)
+        return makeError('Invalid arguments for ' + fun)
 
 class Server:
 
@@ -56,7 +56,8 @@ class Server:
                 try:
                     user = User(userID, addr, self)
                     conns[userID] = user
-                    return (200, json.dumps({'success': True, 'name': user.name, 'vehicle': user.vehicle}))
+                    sockAddr[addr] = user
+                    user.reply = (200, json.dumps({'success' : True}))
                 except Exception as e:
                     print(e)
                     return makeError('User not found')
@@ -71,7 +72,9 @@ class Server:
             userID = req['userID']
             #TODO implement dequeuing and elegant cleanup
             if userID in conns:
+                del sockAddr[conns[userID].addr]
                 del conns[userID]
+
                 return (200, json.dumps({'success': True}))
             else:
                 return makeError('User not connected')
@@ -122,13 +125,13 @@ class Server:
             if page == '/connect':
                 res = checkArgs(req, 'default')
                 if res == True:
-                    conns[req['userID']].handleConnect(req)
+                    self.handleConnect(sock, req)
                 else:
                     return res
             elif page == '/create':
                 res = checkArgs(req, 'create')
                 if res == True:
-                    conns[req['userID']].handleCreate(req)
+                    self.handleCreate(req)
                 else:
                     return res
             else:
@@ -145,6 +148,12 @@ class Server:
                         res = checkArgs(req, 'default')
                         if res == True:
                             conns[req['userID']].handleLeave(req)
+                        else:
+                            return
+                    elif page == '/disconnect':
+                        res = checkArgs(req, 'default')
+                        if res == True:
+                            self.handleDisconnect(sock, req)
                         else:
                             return res
                     elif page == '/cancel':
@@ -172,11 +181,12 @@ class Server:
     # Once all of last second's requests have been processed, do all the logic
     def doLogic(self):
         #check for timeouts
+        '''
         for user in conns:
             #TODO make this a more graceful disconnect
             if current_milli_time() - conns[user].lastActive > 30_000:
                 del conns[user]
-
+        '''
 
         #update queue positions
         for idx, user in enumerate(parkingQueue):
@@ -202,7 +212,7 @@ class Server:
         while True:
             start = current_milli_time()
 
-            readSockets, writeSockets, errorSockets = select.select(socks, [], [], .01)
+            readSockets, writeSockets, errorSockets = select.select(socks, socks, [], .02)
 
             for socket in readSockets:
                 if socket == serverSock:
@@ -225,13 +235,14 @@ class Server:
                         self.handleRequest(socket, data, page)
 
             for socket in writeSockets:
-                if socket != serverSock:
+                if socket != serverSock and socket in sockAddr:
                     user = sockAddr[socket]
                     if user.reply != None:
                         code, reply = user.reply
 
                         httpReply = http.getResponseHead({}, code=str(code), data=reply)
                         http.sendFullMessage(socket, httpReply.encode("utf-8"))
+                        user.reply = None
 
             self.doLogic()
 
