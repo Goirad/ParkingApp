@@ -92,7 +92,27 @@ Commands that currently work:
         }
         
         returns success, invalid args, and user not connected
-    
+
+        Once you are in the queue, the server will send you updates once per tick, which may be any of the following:
+
+        {
+            "userID" : "<userID>",
+            "position" : <position in queue>
+        }
+
+        if matched:
+
+        {
+            "userID" : "<userID>",
+            "position" : <position in queue>,
+            "matchUserID" : "<match's userID>",
+            "matchLocation" : "<description of the match's physical location, where they are currently parked>"
+        }
+
+        at this point the right thing to do is to send a message either to /accept or /decline containing just your userID.
+
+
+
     leave
         POST /leave HTTP/1.1
         Content-Length: <length>

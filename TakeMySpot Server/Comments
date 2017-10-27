@@ -29,3 +29,6 @@ Implement matchmaking functionality
 
 The server will not track socket-user relationships
     each message will need to have the userID in it
+
+States of User:
+Connected or
