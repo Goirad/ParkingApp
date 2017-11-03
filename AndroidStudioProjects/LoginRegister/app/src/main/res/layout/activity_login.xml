@@ -70,12 +70,11 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintRight_toRightOf="@+id/tvRegister"
+        android:layout_marginRight="4dp"
         android:layout_marginTop="39dp"
+        app:layout_constraintRight_toRightOf="@+id/tvRegister"
         app:layout_constraintTop_toBottomOf="@+id/tvRegister"
-        android:layout_marginRight="4dp" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1509719162723"
+    timestamp="1509721401572"
     token="-3011863858223991896"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -23,19 +23,15 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\outputs\apk\app-debug.apk"
-        type="SPLIT_MAIN" />
-
     <build
         build-mode="FULL"
-        timestamp="1509719008646"
+        timestamp="1509721367556"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\outputs\apk\app-debug.apk"
@@ -70,11 +66,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1509719162723"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\outputs\apk\app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
+        timestamp="1509721401572"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
