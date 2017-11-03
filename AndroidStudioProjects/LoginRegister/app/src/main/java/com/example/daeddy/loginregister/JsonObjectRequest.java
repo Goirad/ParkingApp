@@ -38,17 +38,17 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
      *   indicates no parameters will be posted along with request.
      * @param listener Listener to receive the JSON response
      */
-    public JsonObjectRequest(int method, String url, JSONObject jsonRequest, Listener<JSONObject> listener) {
-        super( Method.POST, url, jsonRequest.toString(), listener, null);
+    public JsonObjectRequest(int method, String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener) {
+        super( Method.POST, url, jsonRequest.toString(), listener, errorListener);
     }
     /**
      * Constructor which defaults to <code>GET</code> if <code>jsonRequest</code> is
      * <code>null</code>, <code>POST</code> otherwise.
      *
-     * @see #JsonObjectRequest(int, String, JSONObject, Listener)
+     *
      */
-    public JsonObjectRequest(String url, JSONObject jsonRequest, Listener<JSONObject> listener) {
-        this(jsonRequest == null ? Method.GET : Method.POST, url, jsonRequest, listener);
+    public JsonObjectRequest(String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener) {
+        this(jsonRequest == null ? Method.GET : Method.POST, url, jsonRequest, listener, errorListener);
     }
     @Override
     protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
