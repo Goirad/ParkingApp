@@ -74,7 +74,7 @@ class Server:
             userID = req['userID']
             #TODO implement dequeuing and elegant cleanup
             if userID in self.conns:
-                del self.sockAddr[self.conns[userID].addr]
+                del self.sockAddr[self.conns[userID]]
                 del self.conns[userID]
 
                 return (200, json.dumps({'success': True}))
@@ -127,13 +127,14 @@ class Server:
             if page == '/connect':
                 res = checkArgs(req, 'default')
                 if res == True:
-                    self.handleConnect(sock, req)
+                    return self.handleConnect(sock, req)
                 else:
                     return res
             elif page == '/create':
                 res = checkArgs(req, 'create')
                 if res == True:
-                    self.handleCreate(req)
+                    return self.handleCreate(req)
+
                 else:
                     return res
             else:
@@ -230,15 +231,16 @@ class Server:
         while True:
             start = current_milli_time()
 
-            readSockets, writeSockets, errorSockets = select.select(self.socks, self.socks, [], .02)
+            readSockets, writeSockets, errorSockets = select.select(self.socks, self.socks, [], .01)
 
             for socket in readSockets:
                 if socket == serverSock:
                     newSock, newAddr = serverSock.accept()
                     self.socks.append(newSock)
-                    self.sockAddr[newSock] = newAddr
+                    #self.sockAddr[newSock] = newAddr
                     print("new connection")
                 else:
+                    print('hello')
                     startline, headers, data = http.recvFullMessage(socket)
                     print(data)
                     if startline == b'':
@@ -250,12 +252,17 @@ class Server:
                         print('Request: \n' + startline)
                         page, querydict = http.parseStartLine(startline)
 
-                        self.handleRequest(socket, data, page)
+                        reply = self.handleRequest(socket, data, page)
+                        if reply is not None:
+                            code, reply = reply
+
+                            httpReply = http.getResponseHead({}, code=str(code), data=reply)
+                            http.sendFullMessage(socket, httpReply.encode("utf-8"))
 
             for socket in writeSockets:
                 if socket != serverSock and socket in self.sockAddr:
                     user = self.sockAddr[socket]
-                    if user.reply != None:
+                    if user.reply is not None:
                         code, reply = user.reply
 
                         httpReply = http.getResponseHead({}, code=str(code), data=reply)

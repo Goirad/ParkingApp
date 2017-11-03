@@ -19,6 +19,10 @@
         "Ciara": {
             "vehicle": "BMW",
             "name": "Ciara Aranda"
+        },
+        "John": {
+            "vehicle": "Ford Fiesta",
+            "name": "John Smith"
         }
     }
 }
