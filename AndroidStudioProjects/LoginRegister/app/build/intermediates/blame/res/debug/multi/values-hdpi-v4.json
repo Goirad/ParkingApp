@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\daeddy\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "outputFile": "C:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "C:\\Users\\daeddy\\.android\\build-cache\\a3d3106bd2d8bc421cebbd9913139cbc48152276\\output\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\c72faac7cda75c9128733d69dc6be42d9047c745\\output\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
