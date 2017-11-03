@@ -12,7 +12,6 @@ import android.widget.Toast;
 import android.widget.ProgressBar;
 
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -29,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         final EditText etUname = (EditText) findViewById(R.id.etUname);
+        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final TextView registerLink = (TextView) findViewById(R.id.tvRegister);
         final ProgressBar spinner = (ProgressBar)findViewById(R.id.progressBar);
@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String uName = etUname.getText().toString();
+                final String password = etPassword.getText().toString();
                 final String LOGIN_REQUEST_URL = "http://10.0.2.2:27182/connect";
                 spinner.setVisibility(View.VISIBLE);
 
@@ -53,9 +54,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
+                        spinner.setVisibility(View.INVISIBLE);
+                        System.err.println("Resp");
                         try {
-                            spinner.setVisibility(View.INVISIBLE);
-                            System.err.println("Resp");
                             JSONObject jsonResponse = response;
                             boolean success = jsonResponse.getBoolean("success");
                             if (success) {
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 Response.ErrorListener errorListener = new Response.ErrorListener(){
-                    @Override
+
                     public void onErrorResponse(VolleyError error) {
                         spinner.setVisibility(View.INVISIBLE);
                         String errMsg = error.getMessage();
@@ -101,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject js = new JSONObject();
                 try {
                     js.put("userID", uName);
-
+                    js.put("password", password);
                 }catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -23,17 +23,28 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private EditText etName;
+    private EditText etUname;
+    private EditText etPassword;
+    private EditText etConfirmPassword;
+    private EditText etVehicle;
+    private Button bRegister;
+    private ProgressBar spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final EditText etName = (EditText) findViewById(R.id.etName);
-        final EditText etUname = (EditText) findViewById(R.id.etUname);
-        final EditText etVehicle = (EditText) findViewById(R.id.etVehicle);
-        final Button bRegister = (Button) findViewById(R.id.bRegister);
-        final ProgressBar spinner = (ProgressBar)findViewById(R.id.progressBar2);
+        etName = (EditText) findViewById(R.id.etName);
+        etUname = (EditText) findViewById(R.id.etUname);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
+        etVehicle = (EditText) findViewById(R.id.etVehicle);
+        bRegister = (Button) findViewById(R.id.bRegister);
+        spinner = (ProgressBar)findViewById(R.id.progressBar2);
         spinner.setVisibility(View.GONE);
+
 
         bRegister.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -41,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
                 final String name = etName.getText().toString();
                 final String vehicle = etVehicle.getText().toString();
                 final String uName = etUname.getText().toString();
+                final String password = etPassword.getText().toString();
+                final String confirmPassword = etConfirmPassword.getText().toString();
                 final String LOGIN_REQUEST_URL = "http://10.0.2.2:27182/create";
                 System.err.println("clicked!");
                 spinner.setVisibility(View.VISIBLE);
@@ -48,9 +61,9 @@ public class RegisterActivity extends AppCompatActivity {
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        spinner.setVisibility(View.INVISIBLE);
+                        System.err.println("Resp");
                         try {
-                            spinner.setVisibility(View.INVISIBLE);
-                            System.err.println("Resp");
                             JSONObject jsonResponse = response;
                             boolean success = jsonResponse.getBoolean("success");
                             if (success) {
@@ -88,19 +101,33 @@ public class RegisterActivity extends AppCompatActivity {
                 };
 
                 JSONObject js = new JSONObject();
-                try {
-                    js.put("name", name);
-                    js.put("vehicle", vehicle);
-                    js.put("userID", uName);
 
-                }catch (JSONException e) {
-                    e.printStackTrace();
+                if(checkPasswordsMatch()){
+                    try {
+                        js.put("name", name);
+                        js.put("vehicle", vehicle);
+                        js.put("userID", uName);
+                        js.put("password", password);
+
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    JsonObjectRequest jsRequest = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener, errorListener);
+                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                    queue.add(jsRequest);
                 }
-
-                JsonObjectRequest jsRequest = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener, errorListener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(jsRequest);
+                else
+                    spinner.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    public boolean checkPasswordsMatch(){
+        if(etPassword.getText().toString().equals(etConfirmPassword.getText().toString()))
+            return true;
+
+        Toast.makeText(getApplicationContext(), "Error: passwords do not match.", Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

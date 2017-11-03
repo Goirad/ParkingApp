@@ -6,22 +6,32 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1509721401572"
+    timestamp="1509721714783"
     token="-3011863858223991896"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="551" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="47" />
     <task
         name="verifier"
-        duration="0" />
+        duration="22" />
+
+    <artifact
+        location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\outputs\apk\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
@@ -66,7 +76,17 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1509721401572"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="1509721714783"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\build\outputs\apk\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
 
 </instant-run>

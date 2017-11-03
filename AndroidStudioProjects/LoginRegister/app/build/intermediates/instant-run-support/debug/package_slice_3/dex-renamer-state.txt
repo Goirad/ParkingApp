@@ -1,4 +1,4 @@
-#Thu Nov 02 13:27:03 EDT 2017
-base.0=C\:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3
+#Fri Nov 03 13:58:31 EDT 2017
+base.0=C\:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3
 renamed.0=classes.dex
-file.0=C\:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3\\classes.dex
+file.0=C\:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3\\classes.dex
