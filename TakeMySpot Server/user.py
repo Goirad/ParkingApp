@@ -31,6 +31,7 @@ class User:
     userID = 0
     vehicle = ""
     name = ""
+    locationDescription = ""
 
     reply = None
 
@@ -66,6 +67,7 @@ class User:
             self.reply = self.server.makeError('That command is not available for this user state')
         else:
             self.state = State.LEAVING
+            self.locationDescription = argsDict['locationDescription']
             self.server.leavingQueue.append(self)
             self.reply = successReply
 
@@ -75,9 +77,18 @@ class User:
         if self.state == State.LEAVING:
             self.state = State.MATCHED_L
             self.match = matchUser
+            self.reply = (200, json.dumps({'matched': True,
+                                           'position': self.queuePosition,
+                                           'matchUserID': matchUser.userID,
+                                           'vehicle': matchUser.vehicle}))
         elif self.state == State.PARKING:
             self.state = State.MATCHED_P
             self.match = matchUser
+            self.reply = (200, json.dumps({'matched': True,
+                                           'position': self.queuePosition,
+                                           'matchUserID': matchUser.userID,
+                                           'vehicle': matchUser.vehicle,
+                                           'locationDescription': matchUser.locationDescription}))
 
 
     def handleAccept(self, argsDict):
@@ -178,4 +189,5 @@ class User:
             self.reply = self.server.makeError('That command is not available for this user state')
 
     def updateReply(self, positionInQueue):
-        self.reply = (200, json.dumps({'position': positionInQueue}))
+        self.queuePosition = positionInQueue
+        self.reply = (200, json.dumps({'userID': self.userID, 'position': positionInQueue}))

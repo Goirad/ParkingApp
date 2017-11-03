@@ -19,7 +19,8 @@ BUFSIZE = 2048
 
 expectedJSONArgs = {
     'create' : ['userID', 'name', 'vehicle'],
-    'default': ['userID']
+    'default': ['userID'],
+    'leave'  : ['userID', 'locationDescription']
 }
 
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -189,10 +190,26 @@ class Server:
                 del conns[user]
         '''
 
-        #update queue positions
+        # update queue positions
         for idx, user in enumerate(self.parkingQueue):
             user.updateReply(idx)
-        #TODO check for matches
+        # TODO check for matches
+        '''
+        for leaver in leavingQueue:
+            if leaver.match == None:
+                for parker in parkingQueue:
+                    if parker.match == None and parker not in leaver.declinedMatches:
+                        leaver.match(parker)
+                        parker.match(leaver)   
+        '''
+        # TODO pick one
+        for parker in self.parkingQueue:
+            if parker.match == None:
+                for leaver in self.leavingQueue:
+                    if leaver.match == None and leaver not in parker.declinedMatches:
+                        leaver.match(parker)
+                        parker.match(leaver)
+
         return
 
     def __init__(self):
