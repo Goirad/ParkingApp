@@ -7,10 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.NetworkResponse;
 import com.android.volley.toolbox.Volley;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String uName = etUname.getText().toString();
                 final String LOGIN_REQUEST_URL = "http://10.0.2.2:27182/create";
                 System.err.println("clicked!");
+
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -59,6 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
 
+                Response.ErrorListener errorListener = new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.e("Error: ", error.getMessage());
+                    }
+                };
+
                 JSONObject js = new JSONObject();
                 try {
                     js.put("name", name);
@@ -69,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                JsonObjectRequest jsRequest = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener);
+                JsonObjectRequest jsRequest = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener, errorListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(jsRequest);
             }

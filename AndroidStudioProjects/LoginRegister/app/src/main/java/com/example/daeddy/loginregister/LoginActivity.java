@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                JsonObjectRequest request = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener);
+                JsonObjectRequest request = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener, null);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(request);
             }
