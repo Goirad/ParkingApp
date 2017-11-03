@@ -59,7 +59,7 @@ class Server:
                     user = User(userID, addr, self)
                     self.conns[userID] = user
                     self.sockAddr[addr] = user
-                    user.reply = (200, json.dumps({'success' : True}))
+                    user.reply = (200, json.dumps({'success' : True, 'name': user.name, 'vehicle': user.vehicle}))
                 except Exception as e:
                     print(e)
                     return makeError('User not found')
@@ -262,6 +262,7 @@ class Server:
             for socket in writeSockets:
                 if socket != serverSock and socket in self.sockAddr:
                     user = self.sockAddr[socket]
+                    print(user.name)
                     if user.reply is not None:
                         code, reply = user.reply
 

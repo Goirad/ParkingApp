@@ -1,6 +1,10 @@
 import socket
+import http
 
 class DSock():
+    writeBuffer = ""
+    readBuffer = []
+    currentMessage = ""
     def __init__(self, sock = None):
         if sock is None:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -10,28 +14,25 @@ class DSock():
     def connect(self, host, port):
         self.sock.connect((host, port))
 
-    def send(self, msg):
-        totalsent = 0
-        msglen = len(msg)
-        while totalsent < msglen:
-            sent = self.sock.send(msg[totalsent:].encode())
-            if sent == 0:
-                raise RuntimeError("Socket connection broken")
-            sent += sent
+    def send(self):
+        if len(self.sendBuffer) > 0:
+            while sent != 0:
+                sent = self.sock.send(self.sendBuffer.encode())
+                self.sendBuffer = self.sendBuffer[sent:]
+                if sent == 0:
+                    print("couldn't send")
+                    # raise RuntimeError("Socket connection broken")
 
     def receive(self):
-        buf = self.sock.recv(2048)
-        if buf == b'':
+        new = self.sock.recv(2048)
+        if new == b'':
             return (b'', None, None)
 
-        head, sep, data = buf.partition("\r\n\r\n".encode("utf-8"))
-        while not sep:
-            buf = buf + self.sock.recv(2048)
-            head, sep, data = buf.partition("\r\n\r\n".encode("utf-8"))
+        self.currentMessage += new
+        head, sep, data = self.currentMessage.partition("\r\n\r\n".encode("utf-8"))
 
-        startline, headers = parseRequest(head.decode("utf-8"))
+        startline, headers = http.parseRequest(head.decode("utf-8"))
         if "Content-Length" in headers:
-            while len(data) < int(headers["Content-Length"]):
-                data = data + self.sock.recv(2048)
-
-        return (startline, headers, data.decode("utf-8"))
+            if len(data) >= headers['Content-length']:
+                self.readBuffer.append((startline, headers, data))
+                self.currentMessage = self.currentMessage[len(head) + len(sep) + len(data):]
