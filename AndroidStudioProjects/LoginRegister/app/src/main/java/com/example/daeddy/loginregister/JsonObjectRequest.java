@@ -14,17 +14,17 @@ package com.example.daeddy.loginregister;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-    import com.android.volley.NetworkResponse;
-    import com.android.volley.ParseError;
-    import com.android.volley.Response;
-    import com.android.volley.Response.ErrorListener;
-    import com.android.volley.Response.Listener;
-    import com.android.volley.toolbox.HttpHeaderParser;
-    import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Response;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonRequest;
 
-    import org.json.JSONException;
-    import org.json.JSONObject;
-    import java.io.UnsupportedEncodingException;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.UnsupportedEncodingException;
 /**
  * A request for retrieving a {@link JSONObject} response body at a given URL, allowing for an
  * optional {@link JSONObject} to be passed in as part of the request body.

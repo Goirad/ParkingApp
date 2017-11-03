@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -31,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText etUname = (EditText) findViewById(R.id.etUname);
         final EditText etVehicle = (EditText) findViewById(R.id.etVehicle);
         final Button bRegister = (Button) findViewById(R.id.bRegister);
+        final ProgressBar spinner = (ProgressBar)findViewById(R.id.progressBar2);
+        spinner.setVisibility(View.GONE);
 
         bRegister.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,11 +43,13 @@ public class RegisterActivity extends AppCompatActivity {
                 final String uName = etUname.getText().toString();
                 final String LOGIN_REQUEST_URL = "http://10.0.2.2:27182/create";
                 System.err.println("clicked!");
+                spinner.setVisibility(View.VISIBLE);
 
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            spinner.setVisibility(View.INVISIBLE);
                             System.err.println("Resp");
                             JSONObject jsonResponse = response;
                             boolean success = jsonResponse.getBoolean("success");
@@ -68,7 +73,17 @@ public class RegisterActivity extends AppCompatActivity {
                 Response.ErrorListener errorListener = new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        VolleyLog.e("Error: ", error.getMessage());
+                        spinner.setVisibility(View.INVISIBLE);
+                        String errMsg = error.getMessage();
+
+                        if(errMsg == null){
+                            errMsg = "Connection error!";
+                        }
+
+                        VolleyLog.e("Error: ", errMsg);
+
+                        Toast.makeText(getApplicationContext(), errMsg,
+                                Toast.LENGTH_SHORT).show();
                     }
                 };
 
