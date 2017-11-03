@@ -35,19 +35,34 @@ class User:
 
     reply = None
 
-    def __init__(self, userID, sock, server):
+    def __init__(self, userID, sock, server, password):
+        with open('data.txt') as dbFile:
+
+            db = json.load(dbFile)
+            if userID in db['users']:
+                print("|{}| |{}|".format(db['users'][userID]['password'], password))
+                if password == db['users'][userID]['password']:
+                    print(password == db['users'][userID]['password'])
+                    self.userID = userID
+                    self.server = server
+                    self.vehicle = db['users'][userID]['vehicle']
+                    self.sock = sock
+                    self.state = State.START
+                    self.name = db['users'][userID]['name']
+                    self.lastActive = current_milli_time()
+                else:
+                    raise "error"
+            else:
+                raise "error"
+
+    def isCorrectPassword(self, userID, password):
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
-                self.userID = userID
-                self.server = server
-                self.vehicle = db['users'][userID]['vehicle']
-                self.sock = sock
-                self.state = State.START
-                self.name = db['users'][userID]['name']
-                self.lastActive = current_milli_time()
-            else:
-                raise "USER NOT FOUND"
+                if db['users']['password'] == password:
+                    return True
+
+            return False
 
     def handleParking(self, argsDict):
 

@@ -18,9 +18,10 @@ BUFSIZE = 2048
 # a list of (socket) which stores order
 
 expectedJSONArgs = {
-    'create' : ['userID', 'name', 'vehicle'],
+    'create' : ['userID', 'name', 'vehicle', 'password'],
     'default': ['userID'],
-    'leave'  : ['userID', 'locationDescription']
+    'leave'  : ['userID', 'locationDescription'],
+    'connect': ['userID', 'password']
 }
 
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -36,7 +37,7 @@ def makeError(err):
 
 
 def checkArgs(reqJSON, fun):
-    if reqJSON.keys != expectedJSONArgs[fun]:
+    if set(reqJSON.keys()) == set(expectedJSONArgs[fun]):
         return True
     else:
         return makeError('Invalid arguments for ' + fun)
@@ -49,20 +50,21 @@ class Server:
     conns = {}  # {userID: user}
     sockAddr = {}  # {socket: user}
     def handleConnect(self, addr, req):
-        res = checkArgs(req, 'default')
+        res = checkArgs(req, 'connect')
         if res == True:
             userID = req['userID']
             if userID in self.conns:
                 return makeError('User already connected')
             else:
                 try:
-                    user = User(userID, addr, self)
+                    user = User(userID, addr, self, req['password'])
+
                     self.conns[userID] = user
                     self.sockAddr[addr] = user
                     user.reply = (200, json.dumps({'success' : True, 'name': user.name, 'vehicle': user.vehicle}))
-                except Exception as e:
-                    print(e)
-                    return makeError('User not found')
+                except:
+                    return makeError('Invalid credentials')
+
         else:
             return res
 
@@ -74,7 +76,7 @@ class Server:
             userID = req['userID']
             #TODO implement dequeuing and elegant cleanup
             if userID in self.conns:
-                del self.sockAddr[self.conns[userID]]
+                del self.sockAddr[self.conns[userID].sock]
                 del self.conns[userID]
 
                 return (200, json.dumps({'success': True}))
@@ -95,8 +97,9 @@ class Server:
                 userID = req['userID']
                 vehicle = req['vehicle']
                 name = req['name']
+                password = req['password']
 
-                db['users'][userID] = {'vehicle': vehicle, 'name': name}
+                db['users'][userID] = {'vehicle': vehicle, 'name': name, 'password': password}
 
                 new = open('data1.txt', 'w')
 
@@ -125,7 +128,7 @@ class Server:
         else:
 
             if page == '/connect':
-                res = checkArgs(req, 'default')
+                res = checkArgs(req, 'connect')
                 if res == True:
                     return self.handleConnect(sock, req)
                 else:
@@ -134,7 +137,6 @@ class Server:
                 res = checkArgs(req, 'create')
                 if res == True:
                     return self.handleCreate(req)
-
                 else:
                     return res
             else:
@@ -240,16 +242,16 @@ class Server:
                     #self.sockAddr[newSock] = newAddr
                     print("new connection")
                 else:
-                    print('hello')
+
                     startline, headers, data = http.recvFullMessage(socket)
-                    print(data)
+
                     if startline == b'':
                         self.socks.remove(socket)
                         if socket in self.conns:
                             #TODO more graceful sudden disconnect
                             del self.conns[socket]
                     else:
-                        print('Request: \n' + startline)
+                        print('Request: \n' + data)
                         page, querydict = http.parseStartLine(startline)
 
                         reply = self.handleRequest(socket, data, page)
