@@ -42,11 +42,11 @@ public class RegisterActivity extends AppCompatActivity {
         etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
         etVehicle = (EditText) findViewById(R.id.etVehicle);
         bRegister = (Button) findViewById(R.id.bRegister);
-        spinner = (ProgressBar)findViewById(R.id.progressBar2);
+        spinner = (ProgressBar) findViewById(R.id.progressBar2);
         spinner.setVisibility(View.GONE);
 
 
-        bRegister.setOnClickListener(new View.OnClickListener(){
+        bRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String name = etName.getText().toString();
@@ -83,13 +83,13 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
 
-                Response.ErrorListener errorListener = new Response.ErrorListener(){
+                Response.ErrorListener errorListener = new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         spinner.setVisibility(View.INVISIBLE);
                         String errMsg = error.getMessage();
 
-                        if(errMsg == null){
+                        if (errMsg == null) {
                             errMsg = "Connection error!";
                         }
 
@@ -102,29 +102,28 @@ public class RegisterActivity extends AppCompatActivity {
 
                 JSONObject js = new JSONObject();
 
-                if(checkPasswordsMatch()){
+                if (checkPasswordsMatch()) {
                     try {
                         js.put("name", name);
                         js.put("vehicle", vehicle);
                         js.put("userID", uName);
                         js.put("password", password);
 
-                    }catch (JSONException e) {
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
                     JsonObjectRequest jsRequest = new JsonObjectRequest(LOGIN_REQUEST_URL, js, responseListener, errorListener);
                     RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                     queue.add(jsRequest);
-                }
-                else
+                } else
                     spinner.setVisibility(View.INVISIBLE);
             }
         });
     }
 
-    public boolean checkPasswordsMatch(){
-        if(etPassword.getText().toString().equals(etConfirmPassword.getText().toString()))
+    public boolean checkPasswordsMatch() {
+        if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString()))
             return true;
 
         Toast.makeText(getApplicationContext(), "Error: passwords do not match.", Toast.LENGTH_SHORT).show();
