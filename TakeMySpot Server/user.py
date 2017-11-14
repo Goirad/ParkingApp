@@ -56,7 +56,7 @@ class User:
             else:
                 raise "error"
 
-    def isCorrectPassword(self, userID, password):
+    def isCorrectPassword(userID, password):
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
@@ -204,6 +204,14 @@ class User:
         else:
             self.reply = self.server.makeError('That command is not available for this user state')
 
+            
+     def handleUpdate(self, argsDict):
+        self.lastActive = current_milli_time()
+        if self.state == State.START:
+            self.vehicle = argsDict['vehicle']
+            self.name = argsDict['name']
+            self.password = argsDict['newPassword']
+            
     def updateReply(self, positionInQueue):
         self.queuePosition = positionInQueue
         self.reply = (200, json.dumps({'userID': self.userID, 'position': positionInQueue}))
