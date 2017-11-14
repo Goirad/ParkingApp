@@ -3,7 +3,7 @@
 import socket
 import time
 import select
-from user import User
+from .user import User
 import json
 import os
 import http
@@ -175,7 +175,7 @@ class Server:
                     elif page == '/update':
                         res = checkArgs(req, 'update')
                         if res == True:
-                            if isCorrectPassword(res['userID'], res['password']):
+                            if User.isCorrectPassword(req['userID'], req['password']):
                                 self.conns[req['userID']].handleUpdate(req)
                             else:
                                 return makeError('Invalid Password')

@@ -60,7 +60,7 @@ class User:
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
-                if db['users']['password'] == password:
+                if db['users'][userID]['password'] == password:
                     return True
 
             return False
@@ -211,6 +211,13 @@ class User:
             self.vehicle = argsDict['vehicle']
             self.name = argsDict['name']
             self.password = argsDict['newPassword']
+            with open('data.txt') as dbFile:
+                db = json.load(dbFile)
+                db['users'][self.userID] = {'name': self.name,
+                                            'password': self.password,
+                                            'vehicle': self.vehicle,
+                                            'points':self.points}
+                json.dump(db, dbFile)
             
     def updateReply(self, positionInQueue):
         self.queuePosition = positionInQueue
