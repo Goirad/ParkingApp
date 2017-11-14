@@ -1,7 +1,7 @@
 import json
 import time
 from enum import Enum
-
+import os
 
 current_milli_time = lambda: int(round(time.time() * 1000))
 
@@ -217,6 +217,16 @@ class User:
                                             'password': self.password,
                                             'vehicle': self.vehicle,
                                             'points':self.points}
+                new = open('data1.txt', 'w')
+
+                json.dump(db, new, indent=4)
+
+                dbFile.close()
+                new.close()
+
+                os.rename('data.txt', 'data2.txt')
+                os.rename('data1.txt', 'data.txt')
+                os.rename('data2.txt', 'data1.txt')
                 json.dump(db, dbFile)
             
     def updateReply(self, positionInQueue):

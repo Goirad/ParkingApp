@@ -3,7 +3,7 @@
 import socket
 import time
 import select
-from .user import User
+from user import User
 import json
 import os
 import http
