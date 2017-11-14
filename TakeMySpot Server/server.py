@@ -66,7 +66,8 @@ class Server:
                                                    'name': user.name, 
                                                    'vehicle': user.vehicle, 
                                                    'points': user.points}))
-                except:
+                except Exception as e:
+                    print(e)
                     return makeError('Invalid credentials')
 
         else:
