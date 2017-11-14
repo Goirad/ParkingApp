@@ -1,156 +1,101 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.volley:volley:1.0.0] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\3e590c44c2fb1a870f135c799b160f15\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9d0ab2c35bc0d0f9a44b54e6f66a8d25\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:17:1-31:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
 	package
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:3:5-47
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:3:5-47
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-	android:versionCode
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:4:5-66
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:4:5-66
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:5:5-21:19
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:29:5-20
-MERGED from [com.android.volley:volley:1.0.0] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\3e590c44c2fb1a870f135c799b160f15\AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.0.0] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\3e590c44c2fb1a870f135c799b160f15\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9d0ab2c35bc0d0f9a44b54e6f66a8d25\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9d0ab2c35bc0d0f9a44b54e6f66a8d25\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:29:5-20
-	android:supportsRtl
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:10:9-35
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:5:5-21:19
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\ece954aa34eb8777c8dcbb6360b4fdb29d31c06b\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\903687dbe5caa90ec0bd8b683ccd2dac92b51727\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\9ee6c977b0de2bb75a0e5a98b202e1f5223e1e35\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c06a4ba58378d1e7b15ac4605c40f027520c7d33\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\0ed850070ef091f10269abb551bd32a8971552b4\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\8c8d103be0537de6b153dbcc30845f534d9daa81\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c9ae6bcc2f6a172bd2d14de498845f6112b336f4\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\414622e90818c55e1deb10cf97c71d5c8f78880a\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\daedd\.android\build-cache\a4d93157eaae384601fbf5e08b8c6a9e5c2c58a1\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\daedd\.android\build-cache\4a92bcc0a3c2a17dceec3c745eee296ceb3e836b\output\AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:10:9-35
 	android:roundIcon
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:9:9-54
-	android:icon
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:9:9-54
 	android:allowBackup
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:7:9-43
 	android:theme
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:11:9-40
 activity#com.example.daeddy.loginregister.LoginActivity
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:12:19-48
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:12:19-48
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:16:27-74
 activity#com.example.daeddy.loginregister.RegisterActivity
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:19:9-54
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:19:9-54
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:19:19-51
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:19:19-51
 activity#com.example.daeddy.loginregister.UserAreaActivity
-ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:20:9-63
+ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:20:9-63
 	android:name
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:20:19-51
+		ADDED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml:20:19-51
 uses-sdk
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.volley:volley:1.0.0] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\3e590c44c2fb1a870f135c799b160f15\AndroidManifest.xml:7:5-43
-MERGED from [com.android.volley:volley:1.0.0] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\3e590c44c2fb1a870f135c799b160f15\AndroidManifest.xml:7:5-43
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9d0ab2c35bc0d0f9a44b54e6f66a8d25\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9d0ab2c35bc0d0f9a44b54e6f66a8d25\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:21:5-23:58
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\ece954aa34eb8777c8dcbb6360b4fdb29d31c06b\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\903687dbe5caa90ec0bd8b683ccd2dac92b51727\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\9ee6c977b0de2bb75a0e5a98b202e1f5223e1e35\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c06a4ba58378d1e7b15ac4605c40f027520c7d33\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\0ed850070ef091f10269abb551bd32a8971552b4\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\8c8d103be0537de6b153dbcc30845f534d9daa81\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c9ae6bcc2f6a172bd2d14de498845f6112b336f4\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\414622e90818c55e1deb10cf97c71d5c8f78880a\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\daedd\.android\build-cache\a4d93157eaae384601fbf5e08b8c6a9e5c2c58a1\output\AndroidManifest.xml:7:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\daedd\.android\build-cache\4a92bcc0a3c2a17dceec3c745eee296ceb3e836b\output\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Oliver\Desktop\FIU\OOP\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\daedd\OneDrive\Documents\Programming\ParkingApp\AndroidStudioProjects\LoginRegister\app\src\main\AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\065b462f3b9f1391b69d4f947abd32fc\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\c2b177950c921f46f343d919b15d11e1\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\d85bd8a43a533b59f73ae8d5a05a8e1d\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\8cb13bcccc7df3b05855f35ea70be448\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\ce8f3dcbbb67455d167eb29c634f121e\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\35d933fe688b64c1d7b89fe2b23dce3e\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\1b96478d559bb595761a84fe2256acd4\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\64d848cbfb880a1f427daad9fc2e123d\AndroidManifest.xml:25:5-27:41
+ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\ece954aa34eb8777c8dcbb6360b4fdb29d31c06b\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\903687dbe5caa90ec0bd8b683ccd2dac92b51727\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\9ee6c977b0de2bb75a0e5a98b202e1f5223e1e35\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c06a4ba58378d1e7b15ac4605c40f027520c7d33\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\0ed850070ef091f10269abb551bd32a8971552b4\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\8c8d103be0537de6b153dbcc30845f534d9daa81\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\c9ae6bcc2f6a172bd2d14de498845f6112b336f4\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\414622e90818c55e1deb10cf97c71d5c8f78880a\output\AndroidManifest.xml:25:5-27:41
 	android:value
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:27:9-38
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:27:9-38
 	android:name
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oliver\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\733971cf12c4c5e41555b386d5c84c5d\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\daedd\.android\build-cache\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\output\AndroidManifest.xml:26:9-47

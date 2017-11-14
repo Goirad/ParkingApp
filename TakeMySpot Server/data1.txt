@@ -23,6 +23,10 @@
         "John": {
             "vehicle": "Ford Fiesta",
             "name": "John Smith"
+        },
+        "Jimmy": {
+            "vehicle": "A car",
+            "name": "Jimmy Jones"
         }
     }
 }

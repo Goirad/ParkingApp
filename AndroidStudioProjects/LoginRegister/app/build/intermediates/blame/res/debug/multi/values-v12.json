@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
+        "outputFile": "C:\\Users\\daedd\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 274
                 },
                 "from": {
-                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\c72faac7cda75c9128733d69dc6be42d9047c745\\output\\res\\values-v12\\values-v12.xml",
+                    "file": "C:\\Users\\daedd\\.android\\build-cache\\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\\output\\res\\values-v12\\values-v12.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -33,7 +33,7 @@
                     "endOffset": 474
                 },
                 "from": {
-                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\c72faac7cda75c9128733d69dc6be42d9047c745\\output\\res\\values-v12\\values-v12.xml",
+                    "file": "C:\\Users\\daedd\\.android\\build-cache\\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\\output\\res\\values-v12\\values-v12.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -53,7 +53,7 @@
                     "endOffset": 593
                 },
                 "from": {
-                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\c72faac7cda75c9128733d69dc6be42d9047c745\\output\\res\\values-v12\\values-v12.xml",
+                    "file": "C:\\Users\\daedd\\.android\\build-cache\\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\\output\\res\\values-v12\\values-v12.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -72,7 +72,7 @@
                     "endOffset": 688
                 },
                 "from": {
-                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\c72faac7cda75c9128733d69dc6be42d9047c745\\output\\res\\values-v12\\values-v12.xml",
+                    "file": "C:\\Users\\daedd\\.android\\build-cache\\e64942cf1c03182dd07c11cf65f79d2bc6f4132e\\output\\res\\values-v12\\values-v12.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,

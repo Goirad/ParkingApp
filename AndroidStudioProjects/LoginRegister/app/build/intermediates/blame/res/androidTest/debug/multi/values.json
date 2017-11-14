@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Oliver\\Desktop\\FIU\\OOP\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "C:\\Users\\daedd\\OneDrive\\Documents\\Programming\\ParkingApp\\AndroidStudioProjects\\LoginRegister\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "C:\\Users\\Oliver\\.android\\build-cache\\dbfec36380ed59b0a616f48002397cfdbe157eaa\\output\\res\\values\\values.xml",
+                    "file": "C:\\Users\\daedd\\.android\\build-cache\\88bad4bc292632709b0e664d07843148efdced55\\output\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
