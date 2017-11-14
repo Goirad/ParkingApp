@@ -205,7 +205,7 @@ class User:
             self.reply = self.server.makeError('That command is not available for this user state')
 
             
-     def handleUpdate(self, argsDict):
+    def handleUpdate(self, argsDict):
         self.lastActive = current_milli_time()
         if self.state == State.START:
             self.vehicle = argsDict['vehicle']
