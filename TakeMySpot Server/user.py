@@ -227,7 +227,7 @@ class User:
                 os.rename('data.txt', 'data2.txt')
                 os.rename('data1.txt', 'data.txt')
                 os.rename('data2.txt', 'data1.txt')
-                json.dump(db, dbFile)
+
             
     def updateReply(self, positionInQueue):
         self.queuePosition = positionInQueue
