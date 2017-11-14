@@ -32,7 +32,7 @@ class User:
     vehicle = ""
     name = ""
     locationDescription = ""
-
+    points = 0
     reply = None
 
     def __init__(self, userID, sock, server, password):
@@ -49,6 +49,7 @@ class User:
                     self.sock = sock
                     self.state = State.START
                     self.name = db['users'][userID]['name']
+                    self.points = db['users'][userID]['points']
                     self.lastActive = current_milli_time()
                 else:
                     raise "error"

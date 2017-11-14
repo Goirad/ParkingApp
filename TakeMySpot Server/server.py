@@ -61,7 +61,10 @@ class Server:
 
                     self.conns[userID] = user
                     self.sockAddr[addr] = user
-                    user.reply = (200, json.dumps({'success' : True, 'name': user.name, 'vehicle': user.vehicle}))
+                    user.reply = (200, json.dumps({'success' : True, 
+                                                   'name': user.name, 
+                                                   'vehicle': user.vehicle, 
+                                                   'points': user.points}))
                 except:
                     return makeError('Invalid credentials')
 
@@ -98,8 +101,8 @@ class Server:
                 vehicle = req['vehicle']
                 name = req['name']
                 password = req['password']
-
-                db['users'][userID] = {'vehicle': vehicle, 'name': name, 'password': password}
+        
+                db['users'][userID] = {'vehicle': vehicle, 'name': name, 'password': password, 'points': 100}
 
                 new = open('data1.txt', 'w')
 
