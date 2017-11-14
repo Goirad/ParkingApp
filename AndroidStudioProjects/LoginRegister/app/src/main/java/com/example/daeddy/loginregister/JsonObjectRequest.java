@@ -14,6 +14,7 @@ package com.example.daeddy.loginregister;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Response;
@@ -24,7 +25,9 @@ import com.android.volley.toolbox.JsonRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
+
 /**
  * A request for retrieving a {@link JSONObject} response body at a given URL, allowing for an
  * optional {@link JSONObject} to be passed in as part of the request body.
@@ -32,24 +35,25 @@ import java.io.UnsupportedEncodingException;
 public class JsonObjectRequest extends JsonRequest<JSONObject> {
     /**
      * Creates a new request.
-     * @param method the HTTP method to use
-     * @param url URL to fetch the JSON from
+     *
+     * @param method      the HTTP method to use
+     * @param url         URL to fetch the JSON from
      * @param jsonRequest A {@link JSONObject} to post with the request. Null is allowed and
-     *   indicates no parameters will be posted along with request.
-     * @param listener Listener to receive the JSON response
+     *                    indicates no parameters will be posted along with request.
+     * @param listener    Listener to receive the JSON response
      */
     public JsonObjectRequest(int method, String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener) {
-        super( Method.POST, url, jsonRequest.toString(), listener, errorListener);
+        super(Method.POST, url, jsonRequest.toString(), listener, errorListener);
     }
+
     /**
      * Constructor which defaults to <code>GET</code> if <code>jsonRequest</code> is
      * <code>null</code>, <code>POST</code> otherwise.
-     *
-     *
      */
     public JsonObjectRequest(String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener) {
         this(jsonRequest == null ? Method.GET : Method.POST, url, jsonRequest, listener, errorListener);
     }
+
     @Override
     protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
         try {

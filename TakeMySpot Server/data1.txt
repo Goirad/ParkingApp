@@ -2,31 +2,23 @@
     "users": {
         "Dario": {
             "vehicle": "Toyota Tacoma",
-            "name": "Dario Gonzalez"
+            "name": "Dario Gonzalez",
+            "password" : "dario"
         },
         "Olivier": {
             "vehicle": "Bicycle",
-            "name": "Olivier Nappert"
+            "name": "Olivier Nappert",
+            "password": "olivier"
         },
         "Lester": {
             "vehicle": "Honda Civic",
-            "name": "Lester Hernandez"
+            "name": "Lester Hernandez",
+            "password": "lester"
         },
         "Eduardo": {
             "vehicle": "Toyota Corolla",
-            "name": "Eduardo Porto"
-        },
-        "Ciara": {
-            "vehicle": "BMW",
-            "name": "Ciara Aranda"
-        },
-        "John": {
-            "vehicle": "Ford Fiesta",
-            "name": "John Smith"
-        },
-        "Jimmy": {
-            "vehicle": "A car",
-            "name": "Jimmy Jones"
+            "name": "Eduardo Porto",
+            "password": "eduardo"
         }
     }
 }

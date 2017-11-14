@@ -1,36 +1,29 @@
 {
     "users": {
-        "Olivier": {
-            "vehicle": "Bicycle",
-            "name": "Olivier Nappert"
+        "Dario": {
+            "name": "Dario Gonzalez",
+            "password": "dario",
+            "vehicle": "Toyota Tacoma"
+        },
+        "testUname": {
+            "name": "testName",
+            "password": "testpwd",
+            "vehicle": "Porsche"
         },
         "Lester": {
-            "vehicle": "Honda Civic",
-            "name": "Lester Hernandez"
+            "name": "Lester Hernandez",
+            "password": "lester",
+            "vehicle": "Honda Civic"
         },
-        "Jimmy": {
-            "vehicle": "A car",
-            "name": "Jimmy Jones"
-        },
-        "": {
-            "vehicle": "",
-            "name": ""
-        },
-        "Dario": {
-            "vehicle": "Toyota Tacoma",
-            "name": "Dario Gonzalez"
-        },
-        "Ciara": {
-            "vehicle": "BMW",
-            "name": "Ciara Aranda"
+        "Olivier": {
+            "name": "Olivier Nappert",
+            "password": "olivier",
+            "vehicle": "Bicycle"
         },
         "Eduardo": {
-            "vehicle": "Toyota Corolla",
-            "name": "Eduardo Porto"
-        },
-        "John": {
-            "vehicle": "Ford Fiesta",
-            "name": "John Smith"
+            "name": "Eduardo Porto",
+            "password": "eduardo",
+            "vehicle": "Toyota Corolla"
         }
     }
 }

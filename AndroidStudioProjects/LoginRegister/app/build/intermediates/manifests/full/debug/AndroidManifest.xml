@@ -32,6 +32,7 @@
         </activity>
         <activity android:name="com.example.daeddy.loginregister.RegisterActivity" />
         <activity android:name="com.example.daeddy.loginregister.UserAreaActivity" />
+        <activity android:name="com.example.daeddy.loginregister.ProfileActivity" />
     </application>
 
 </manifest>
