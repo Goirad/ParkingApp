@@ -1,7 +1,7 @@
 import json
 import time
 from enum import Enum
-
+import os
 
 current_milli_time = lambda: int(round(time.time() * 1000))
 
@@ -32,7 +32,7 @@ class User:
     vehicle = ""
     name = ""
     locationDescription = ""
-
+    points = 0
     reply = None
 
     def __init__(self, userID, sock, server, password):
@@ -49,17 +49,18 @@ class User:
                     self.sock = sock
                     self.state = State.START
                     self.name = db['users'][userID]['name']
+                    self.points = db['users'][userID]['points']
                     self.lastActive = current_milli_time()
                 else:
                     raise "error"
             else:
                 raise "error"
 
-    def isCorrectPassword(self, userID, password):
+    def isCorrectPassword(userID, password):
         with open('data.txt') as dbFile:
             db = json.load(dbFile)
             if userID in db['users']:
-                if db['users']['password'] == password:
+                if db['users'][userID]['password'] == password:
                     return True
 
             return False
@@ -203,6 +204,31 @@ class User:
         else:
             self.reply = self.server.makeError('That command is not available for this user state')
 
+            
+    def handleUpdate(self, argsDict):
+        self.lastActive = current_milli_time()
+        if self.state == State.START:
+            self.vehicle = argsDict['vehicle']
+            self.name = argsDict['name']
+            self.password = argsDict['newPassword']
+            with open('data.txt') as dbFile:
+                db = json.load(dbFile)
+                db['users'][self.userID] = {'name': self.name,
+                                            'password': self.password,
+                                            'vehicle': self.vehicle,
+                                            'points':self.points}
+                new = open('data1.txt', 'w')
+
+                json.dump(db, new, indent=4)
+
+                dbFile.close()
+                new.close()
+
+                os.rename('data.txt', 'data2.txt')
+                os.rename('data1.txt', 'data.txt')
+                os.rename('data2.txt', 'data1.txt')
+
+            
     def updateReply(self, positionInQueue):
         self.queuePosition = positionInQueue
         self.reply = (200, json.dumps({'userID': self.userID, 'position': positionInQueue}))

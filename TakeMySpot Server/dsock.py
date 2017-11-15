@@ -5,6 +5,7 @@ class DSock():
     writeBuffer = ""
     readBuffer = []
     currentMessage = ""
+    sendBuffer = ""
     def __init__(self, sock = None):
         if sock is None:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,6 +17,7 @@ class DSock():
 
     def send(self):
         if len(self.sendBuffer) > 0:
+            sent = 1
             while sent != 0:
                 sent = self.sock.send(self.sendBuffer.encode())
                 self.sendBuffer = self.sendBuffer[sent:]

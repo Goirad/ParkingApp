@@ -21,7 +21,8 @@ expectedJSONArgs = {
     'create' : ['userID', 'name', 'vehicle', 'password'],
     'default': ['userID'],
     'leave'  : ['userID', 'locationDescription'],
-    'connect': ['userID', 'password']
+    'connect': ['userID', 'password'],
+    'update' : ['userID', 'password', 'newPassword', 'vehicle', 'name']
 }
 
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -61,8 +62,12 @@ class Server:
 
                     self.conns[userID] = user
                     self.sockAddr[addr] = user
-                    user.reply = (200, json.dumps({'success' : True, 'name': user.name, 'vehicle': user.vehicle}))
-                except:
+                    user.reply = (200, json.dumps({'success' : True, 
+                                                   'name': user.name, 
+                                                   'vehicle': user.vehicle, 
+                                                   'points': user.points}))
+                except Exception as e:
+                    print(e)
                     return makeError('Invalid credentials')
 
         else:
@@ -98,8 +103,8 @@ class Server:
                 vehicle = req['vehicle']
                 name = req['name']
                 password = req['password']
-
-                db['users'][userID] = {'vehicle': vehicle, 'name': name, 'password': password}
+        
+                db['users'][userID] = {'vehicle': vehicle, 'name': name, 'password': password, 'points': 100}
 
                 new = open('data1.txt', 'w')
 
@@ -167,16 +172,13 @@ class Server:
                             self.conns[req['userID']].handleCancel(req)
                         else:
                             return res
-                    elif page == '/accept':
-                        res = checkArgs(req, 'default')
+                    elif page == '/update':
+                        res = checkArgs(req, 'update')
                         if res == True:
-                            self.conns[req['userID']].handleCancel(req)
-                        else:
-                            return res
-                    elif page == '/decline':
-                        res = checkArgs(req, 'default')
-                        if res == True:
-                            self.conns[req['userID']].handleCancel(req)
+                            if User.isCorrectPassword(req['userID'], req['password']):
+                                self.conns[req['userID']].handleUpdate(req)
+                            else:
+                                return makeError('Invalid Password')
                         else:
                             return res
                     else:

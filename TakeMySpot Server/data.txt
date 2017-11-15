@@ -3,27 +3,36 @@
         "Dario": {
             "name": "Dario Gonzalez",
             "password": "dario",
-            "vehicle": "Toyota Tacoma"
+            "vehicle": "Toyota Tacoma",
+            "points" : 320
         },
         "testUname": {
             "name": "testName",
             "password": "testpwd",
-            "vehicle": "Porsche"
+            "vehicle": "Porsche",
+            "points" : 320
+
         },
         "Lester": {
             "name": "Lester Hernandez",
             "password": "lester",
-            "vehicle": "Honda Civic"
+            "vehicle": "Honda Civic",
+            "points" : 320
+
         },
         "Olivier": {
             "name": "Olivier Nappert",
             "password": "olivier",
-            "vehicle": "Bicycle"
+            "vehicle": "Bicycle",
+            "points" : 320
+
         },
         "Eduardo": {
             "name": "Eduardo Porto",
             "password": "eduardo",
-            "vehicle": "Toyota Corolla"
+            "vehicle": "Toyota Corolla",
+            "points" : 320
+
         }
     }
 }
