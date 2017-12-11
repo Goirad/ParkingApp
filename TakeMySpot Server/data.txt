@@ -33,6 +33,13 @@
             "vehicle": "Toyota Corolla",
             "points" : 320
 
+        },
+	"a": {
+            "name": "ABC XYZ",
+            "password": "a",
+            "vehicle": "Toyota Corolla",
+            "points" : 320
+
         }
     }
 }

@@ -21,6 +21,8 @@ expectedJSONArgs = {
     'create' : ['userID', 'name', 'vehicle', 'password'],
     'default': ['userID'],
     'leave'  : ['userID', 'locationDescription'],
+    #park
+    #cancel
     'connect': ['userID', 'password'],
     'update' : ['userID', 'password', 'newPassword', 'vehicle', 'name']
 }
@@ -73,8 +75,6 @@ class Server:
         else:
             return res
 
-
-
     def handleDisconnect(self, addr, req):
         res = checkArgs(req, 'default')
         if res == True:
@@ -89,7 +89,6 @@ class Server:
                 return makeError('User not connected')
         else:
             return res
-
 
     def handleCreate(self, req):
         res = checkArgs(req, 'create')
@@ -183,7 +182,6 @@ class Server:
                             return res
                     else:
                         return makeError('Invalid command')
-
 
     # Once all of last second's requests have been processed, do all the logic
     def doLogic(self):

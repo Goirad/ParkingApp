@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.daeddy.loginregister.MatchingActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="112dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvWaitTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMatching" />
+
+    <TextView
+        android:id="@+id/tvMatching"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="119dp"
+        android:text="Matching for"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWaitTime"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginEnd="38dp"
+        android:text="Est. Wait time:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTimer"
+        app:layout_constraintEnd_toEndOf="@+id/tvTimer"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="192dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="23dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWaitTime" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="61dp"
+        android:text="Cancel"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
+
+</android.support.constraint.ConstraintLayout>

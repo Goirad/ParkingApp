@@ -13,6 +13,10 @@ import android.content.Intent;
 public class UserAreaActivity extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
@@ -21,32 +25,62 @@ public class UserAreaActivity extends AppCompatActivity {
         final String name = intent.getStringExtra("name");
         final String Uname = intent.getStringExtra("Uname");
         final String vehicle = intent.getStringExtra("vehicle");
-        //final int points = intent.getStringExtra(name:"points");
+        final int points = intent.getIntExtra("points", 0);
 
         TextView welcomeMsg = (TextView) findViewById(R.id.tvWelcomMsg);
         TextView tvUname = (TextView) findViewById(R.id.tvUname);
         TextView tvPoints = (TextView) findViewById(R.id.tvPoints);
         Button toProfile = (Button) findViewById(R.id.btnProfile);
+        Button btnPark = (Button) findViewById(R.id.btnPark);
+        Button btnleave = (Button) findViewById(R.id.btnLeave);
 
         // Display user details
         String message = "Welcome to your user area " + name + ".";
         welcomeMsg.setText(message);
 
         tvUname.append(" " + Uname);
-        //tvPoints.append(" " + tvPoints.toString());
+        tvPoints.append(" " + points);
 
        toProfile.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View v) {
-              Intent intent = new Intent(UserAreaActivity.this, ProfileActivity.class);
+               Intent intent = new Intent(UserAreaActivity.this, ProfileActivity.class);
                intent.putExtra("name", name);
                intent.putExtra("Uname", Uname);
                intent.putExtra("vehicle", vehicle);
-               //intent.putExtra(name:"points", points);
 
                UserAreaActivity.this.startActivity(intent);
            };
         });
+
+       btnPark.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(UserAreaActivity.this, ParkingActivity.class);
+               intent.putExtra("name", name);
+               intent.putExtra("Uname", Uname);
+               intent.putExtra("vehicle", vehicle);
+               intent.putExtra("points", points);
+
+
+               UserAreaActivity.this.startActivity(intent);
+           };
+       });
+
+        btnleave.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserAreaActivity.this, LeaveActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("Uname", Uname);
+                intent.putExtra("vehicle", vehicle);
+                intent.putExtra("points", points);
+
+
+                UserAreaActivity.this.startActivity(intent);
+            };
+        });
+
     }
 
 

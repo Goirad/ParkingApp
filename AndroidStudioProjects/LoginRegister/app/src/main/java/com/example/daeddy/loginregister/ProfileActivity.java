@@ -67,7 +67,6 @@ public class ProfileActivity extends AppCompatActivity {
                                 intent.putExtra("name", name);
                                 intent.putExtra("Uname", Uname);
                                 intent.putExtra("vehicle", vehicle);
-                                //intent.putExtra(name:"points", points);
 
                                 ProfileActivity.this.startActivity(intent);
 

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Take My Spot!</string>
+
+    <string name="location_prompt">Pick Garage</string>
+
+    <string-array name="location_arrays">
+        <item>Select One</item>
+    </string-array>
 </resources>

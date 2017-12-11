@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.daeddy.loginregister.LeaveActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/tvPoints"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="81dp"
+        android:layout_marginTop="33dp"
+        android:text="Points:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:entries="@array/location_arrays"
+        android:prompt="@string/location_prompt"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPoints" />
+
+    <Button
+        android:id="@+id/btnLeave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:layout_marginStart="21dp"
+        android:text="Leave"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCost"
+        app:layout_constraintTop_toBottomOf="@+id/tvCost" />
+
+    <TextView
+        android:id="@+id/tvCost"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="Cost:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLeave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDirections" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Select Location:"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/etDirections"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/tvCost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:text="Directions:"
+        app:layout_constraintBottom_toTopOf="@+id/etDirections"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+</android.support.constraint.ConstraintLayout>

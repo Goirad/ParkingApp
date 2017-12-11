@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.daeddy.loginregister.MatchedActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/tvMatched"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="243dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="42dp"
+        android:text="You Matched with"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="85dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Location:"
+        app:layout_constraintBottom_toTopOf="@+id/tvMatched"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="100dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Confirm Exchange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="97dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="63dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="25dp"
+        android:text="Cancel Exchange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnConfirm"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMatched"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <EditText
+        android:id="@+id/etmatchText"
+        android:layout_width="0dp"
+        android:layout_height="145dp"
+        android:layout_marginBottom="85dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginStart="54dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvParking" />
+
+    <TextView
+        android:id="@+id/tvParking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Spot:"
+        app:layout_constraintBottom_toTopOf="@+id/etmatchText"
+        app:layout_constraintStart_toStartOf="@+id/etmatchText"
+        app:layout_constraintTop_toBottomOf="@+id/tvVehicle" />
+
+    <TextView
+        android:id="@+id/tvVehicle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginStart="61dp"
+        android:text="Vehicle:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvParking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMatched" />
+
+</android.support.constraint.ConstraintLayout>

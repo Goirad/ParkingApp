@@ -63,13 +63,13 @@ public class LoginActivity extends AppCompatActivity {
                             if (success) {
                                 String name = jsonResponse.getString("name");
                                 String vehicle = jsonResponse.getString("vehicle");
-                                //int points = jsonResponse.getString(name:"points");
+                                int points = jsonResponse.getInt("points");
 
                                 Intent intent = new Intent(LoginActivity.this, UserAreaActivity.class);
                                 intent.putExtra("name", name);
                                 intent.putExtra("vehicle", vehicle);
                                 intent.putExtra("Uname", uName);
-                                //intent.putExtra(name:"points", points);
+                                intent.putExtra("points", points);
 
                                 LoginActivity.this.startActivity(intent);
                             } else {

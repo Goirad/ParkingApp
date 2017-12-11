@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.daeddy.loginregister.ParkingActivity">
+
+    <TextView
+        android:id="@+id/tvPoints"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="79dp"
+        android:layout_marginTop="30dp"
+        android:text="Points:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="141dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="131dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
+        android:entries="@array/location_arrays"
+        android:prompt="@string/location_prompt"
+        app:layout_constraintBottom_toTopOf="@+id/tvCost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPoints" />
+
+    <Button
+        android:id="@+id/btnPark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="126dp"
+        android:layout_marginStart="20dp"
+        android:text="Park"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCost"
+        app:layout_constraintTop_toBottomOf="@+id/tvCost" />
+
+    <TextView
+        android:id="@+id/tvCost"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Cost:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Select Location:"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner" />
+
+</android.support.constraint.ConstraintLayout>
